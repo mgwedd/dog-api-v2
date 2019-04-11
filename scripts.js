@@ -19,6 +19,7 @@ function getAndLogDogs(dogCount) {
 
 //  https://ourcodeworld.com/articles/read/457/how-to-display-images-in-the-javascript-console-of-the-browser
 function renderImagesInConsole(jsonResponse) {
+    console.log('renderImagesInConsole is running');
     const dogImagesArray = parseJSON(jsonResponse).message;
     
     dogImagesArray.forEach(dogImage => {
