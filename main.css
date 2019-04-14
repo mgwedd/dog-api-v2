@@ -34,3 +34,18 @@ input[type=submit] {
     font-size: 30px;
     padding: 10px;
 }
+
+img {
+    max-width: 300px;
+    max-height: 300px;
+    margin: 25px;;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.results-container {
+    margin: 0 auto;
+    text-align: center;
+}

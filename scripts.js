@@ -3,6 +3,7 @@
 function getDogCount() {
     $('input[type="submit"]').on('click', event => {
         event.preventDefault();
+        $('#js-image-results-list').empty();
         getAndLogDogs($('input[type="text"]').val());
     });
 }
@@ -10,13 +11,15 @@ function getDogCount() {
 function getAndLogDogs(dogCount) {
     fetch(`https://dog.ceo/api/breeds/image/random/${dogCount}`)
     .then(response => response.json())
-    .then(responseObj => renderImagesInConsole(responseObj))
+    .then(responseObj => renderImages(responseObj))
     .catch(error => alert(error.message));
 }
 
-function renderImagesInConsole(responseObj) {
-    const dogImagesArray = responseObj.message;
-    dogImagesArray.forEach(dogImage => {console.image(dogImage)});
+function renderImages(responseObj) {
+    responseObj.message.forEach(dogImage => {
+        $('#js-image-results-list').append(`<li><img src="${dogImage}" class="results-img"></li>`);
+        $('.results-container').removeClass('hidden');
+    });
 }
 
 $(getDogCount());
